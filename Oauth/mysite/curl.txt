@@ -13,3 +13,4 @@ C:\Users\michael.mountford>curl -X POST -d "grant_type=password&username=michael
 {"access_token": "uXXM3BGNFqQiWF8ZOUIgW2RCHG2taS", "expires_in": 3000, "token_type": "Bearer", "scope": "read write groups", "refresh_token": "nYdvLa2kSu7vuV74uZll8MTE6yD04I"}
 C:\Users\michael.mountford>
 ehllo
+d[wu9a]
