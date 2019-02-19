@@ -1,6 +1,8 @@
 import React from 'react';
-
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import {IndexLinkContainer} from 'react-router-bootstrap';
+
+
 
 const mainNavbar = () => {
 
@@ -10,9 +12,15 @@ const mainNavbar = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">Products</Nav.Link>
-                    <Nav.Link href="#link">Checkout</Nav.Link>
+                    <IndexLinkContainer to="/">
+                        <Nav.Link>Home</Nav.Link>
+                    </IndexLinkContainer>
+                    <IndexLinkContainer to="/products">
+                        <Nav.Link>Products</Nav.Link>
+                    </IndexLinkContainer>
+                    <IndexLinkContainer to="/checkout">
+                        <Nav.Link>Checkout</Nav.Link>
+                    </IndexLinkContainer>
                 </Nav>
                 <Form inline>
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -21,7 +29,6 @@ const mainNavbar = () => {
             </Navbar.Collapse>
         </Navbar>
     )
-
 };
 
 export default mainNavbar;
