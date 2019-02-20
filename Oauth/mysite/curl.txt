@@ -1,0 +1,12 @@
+curl -X POST -d "grant_type=password&username=michael.mountford&password=0000" -u"cqvRmKJYT5eESRLKzfJyFRrT8UFk2yfjHmYM3h7F:gkFtSMS3OJ0zIciiAjW8SIJ7cNACzxyPCcMASOcp61Ewln1wig224NbJWxz8kWcrr7i9hqiTnK51ZPhMkddCpOdug4QLVV9KieVCUdFbxVZpbX1fSACFmZUfdfCCOHPw" http://localhost:8000/o/token/
+
+curl -H "Authorization: Bearer VpmZx3SY1g91K6eLowYVnPwVzFXbBF" http://localhost:8000/users/
+curl -H "Authorization: Bearer VpmZx3SY1g91K6eLowYVnPwVzFXbBF" http://localhost:8000/users/1/
+curl -H "Authorization: Bearer VpmZx3SY1g91K6eLowYVnPwVzFXbBF" http://localhost:8000/groups/
+curl -H "Authorization: Bearer 0Y6BJHRLc1SSIavs1fJ0aCos4hZxJP" http://localhost:8000/Productlist/
+
+
+
+C:\Users\michael.mountford>curl -X POST -d "grant_type=password&username=michael.mountford&password=0000" -u"cqvRmKJYT5eESRLKzfJyFRrT8UFk2yfjHmYM3h7F:gkFtSMS3OJ0zIciiAjW8SIJ7cNACzxyPCcMASOcp61Ewln1wig224NbJWxz8kWcrr7i9hqiTnK51ZPhMkddCpOdug4QLVV9KieVCUdFbxVZpbX1fSACFmZUfdfCCOHPw" http://localhost:8000/o/token/
+{"access_token": "0Y6BJHRLc1SSIavs1fJ0aCos4hZxJP", "expires_in": 3000, "token_type": "Bearer", "scope": "read write groups", "refresh_token": "5CMDkbVN1fMJbU2PRlGxNbCzg3C7qz"}
+C:\Users\michael.mountford>
