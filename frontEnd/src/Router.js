@@ -1,16 +1,21 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Products from './pages/Products'
-
 
 import HomePage from './pages/Home';
+import Products from './pages/Products';
+import Checkout from './pages/Checkout';
+import Error from './pages/Error';
+
+
 
 const Router = () => {
     return (
-    <div>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/products" component={Products} />
-    </div>
+        <div>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/products" component={Products} />
+            <Route exact path="/checkout" component={Checkout} />
+            {/* <Route component={Error} /> */}
+        </div>
     )
 }
 

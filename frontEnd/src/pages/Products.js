@@ -1,9 +1,10 @@
 import React from 'react';
+import ProductsIndex from '../Components/Products/index'
 
 const Products = () => {
     return (
         <div>
-            Testing
+            <ProductsIndex/>
         </div>
     )
 }

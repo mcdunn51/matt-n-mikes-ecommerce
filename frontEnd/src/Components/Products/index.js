@@ -1,17 +1,30 @@
-// import React, { Component } from 'react';
-// import fetchApi from '../../FetchApi';
-
-// class Products extends Component {
-//     componentDidMount() {
-        
-//     }
-//     render () {
-//         return (
-
-//         )
-//     }
-// }
+import React, { Component } from 'react';
+import axios from 'axios';
 
 
+class ProductsIndex extends Component {
+    state = {
+        persons: []
+    }
 
-// export default Products;
+    componentDidMount() {
+        axios.get(`https://jsonplaceholder.typicode.com/users`)
+            .then(res => {
+                console.log(res);
+                this.setState({ persons: res.data });
+            })
+    }
+
+    render () {
+        return (
+            <ul>
+                {this.state.persons.map(person => 
+                <li>{person.name}</li>)}
+            </ul>
+        )
+    }
+}
+
+
+
+export default ProductsIndex;

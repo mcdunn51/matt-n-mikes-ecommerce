@@ -1,6 +1,6 @@
 import React from 'react';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
-import {IndexLinkContainer} from 'react-router-bootstrap';
+import { IndexLinkContainer } from 'react-router-bootstrap';
 
 
 

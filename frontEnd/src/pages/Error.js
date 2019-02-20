@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Checkout = () => {
+const Error = () => {
     return (
         <div>
-            Checkout
+            Url not found
         </div>
     )
 }
 
-export default Checkout;
+export default Error;
