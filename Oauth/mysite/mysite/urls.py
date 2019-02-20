@@ -23,7 +23,7 @@ class GroupSerializer(serializers.ModelSerializer):
 class ProdSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ("id", "title", "description", "description2", "price", "colour")
+        fields = ("id", "itemno", "description", "description2", "price", "colour", "manufacturerCode")
 
 # Create the API views
 
