@@ -5,8 +5,15 @@ curl -H "Authorization: Bearer VpmZx3SY1g91K6eLowYVnPwVzFXbBF" http://localhost:
 curl -H "Authorization: Bearer VpmZx3SY1g91K6eLowYVnPwVzFXbBF" http://localhost:8000/users/1/
 curl -H "Authorization: Bearer VpmZx3SY1g91K6eLowYVnPwVzFXbBF" http://localhost:8000/groups/
 curl -H "Authorization: Bearer 0Y6BJHRLc1SSIavs1fJ0aCos4hZxJP" http://http://192.168.20.118:8000/Productlist/
+http://192.168.20.118:8000/Productlist/?access_token=RQGvJWTzjPWeRtdphT0frma2o4AxJg&format=json
 
 
+Oauth) C:\Users\michael.mountford\OneDrive\Programming\matt-mikes-practice\Oauth>Scripts\python.exe mysite\manage.py runserver 192.168.20.118:8000
+Performing system checks...
 
-{"access_token": "mVotNC21dltf4n9c3oVyNJFPwz0CMd", "expires_in": 3000, "token_type": "Bearer", "scope": "read write groups", "refresh_token": "xDIXrEKuVAwy3HddhLZF794QCFgUuz"}
-C:\Users\michael.mountford>
+System check identified no issues (0 silenced).
+February 22, 2019 - 12:54:25
+Django version 2.1.7, using settings 'mysite.settings'
+Starting development server at http://192.168.20.118:8000/
+Quit the server with CTRL-BREAK.
+[22/Feb/2019 12:54:55] "POST /o/token/ HTTP/1.1" 200 177

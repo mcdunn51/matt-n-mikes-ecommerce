@@ -40,13 +40,16 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'rest_framework',
     'data',
+    # 'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    # 'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -83,15 +86,6 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'NAME': 'RKW Data Warehouse',
-#         'ENGINE': 'sqlserver_ado',
-#         'HOST': 'NAVSQLAT\\RKWL1',
-#         'USER': 'michaelm',
-#         'PASSWORD': 'michael91448',
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -143,7 +137,12 @@ REST_FRAMEWORK = {
 OAUTH2_PROVIDER = {
     # this is the list of available scopes
     'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups', },
-    'ACCESS_TOKEN_EXPIRE_SECONDS': 3000,
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 300000,
     'OAUTH_SINGLE_ACCESS_TOKEN': True,
     'OAUTH_DELETE_EXPIRED': True
 }
+
+CORS_ORIGIN_WHITELIST = (
+    '192.168.20.118:8000',
+    '192.168.20.153:3000'
+)
