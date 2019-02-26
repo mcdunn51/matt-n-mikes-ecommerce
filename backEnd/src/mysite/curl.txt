@@ -1,17 +1,5 @@
 curl -X POST -d "grant_type=password&username=m&password=0000" -u"a1yxcE1zgnnsvfIHbgCabC6trbZh41ZFeEMh85j3:jk0yfYIB26haC47rV71gKUtbOpvEIiTsEdcWH0HNNJ8ZNE9q3ScNKh4o3Ig4rUpBYpVb0DP3nS2Ew6mRTqZUiwEYv7fCLVsnn2QarN8d5PoOtVKP6eVzgmfV62oSnUjM" http://192.168.20.118:8000/o/token/
-curl -H "Authorization: Bearer mVotNC21dltf4n9c3oVyNJFPwz0CMd" http://192.168.20.118:8000/Productlist/
+curl -H "Authorization: Bearer snvOn645CHKtHlTwk9Kaom3LHtoXKK" http://192.168.20.118:8000/Productlist/
 
-curl -X POST -d "grant_type=password&username=<user_name>&password=<password>" -u"<client_id>:<client_secret>" http://localhost:8000/o/token/
-
-curl -H "Authorization: Bearer VpmZx3SY1g91K6eLowYVnPwVzFXbBF" http://localhost:8000/users/
-curl -H "Authorization: Bearer VpmZx3SY1g91K6eLowYVnPwVzFXbBF" http://localhost:8000/users/1/
-curl -H "Authorization: Bearer VpmZx3SY1g91K6eLowYVnPwVzFXbBF" http://localhost:8000/groups/
-curl -H "Authorization: Bearer 0Y6BJHRLc1SSIavs1fJ0aCos4hZxJP" http://http://192.168.20.118:8000/Productlist/
 http://192.168.20.118:8000/Productlist/?access_token=vOQ18Acqx6ru7pqUEDLIoGaC2JL40S&format=json
-
-
-Oauth) C:\Users\michael.mountford\OneDrive\Programming\matt-mikes-practice\Oauth>Scripts\python.exe mysite\manage.py runserver 192.168.20.118:8000
-
-C:\Users\michael.mountford>curl -X POST -d "grant_type=password&username=m&password=0000" -u"a1yxcE1zgnnsvfIHbgCabC6trbZh41ZFeEMh85j3:jk0yfYIB26haC47rV71gKUtbOpvEIiTsEdcWH0HNNJ8ZNE9q3ScNKh4o3Ig4rUpBYpVb0DP3nS2Ew6mRTqZUiwEYv7fCLVsnn2QarN8d5PoOtVKP6eVzgmfV62oSnUjM" http://192.168.20.118:8000/o/token/
-{"access_token": "vOQ18Acqx6ru7pqUEDLIoGaC2JL40S", "expires_in": 300000, "token_type": "Bearer", "scope": "read write groups", "refresh_token": "DqkIyUim8EsFtyxxBkuvJ4ipobJmJ8"}
-C:\Users\michael.mountford>
+http://192.168.20.118:8000/users/1/?access_token=vOQ18Acqx6ru7pqUEDLIoGaC2JL40S&format=json
