@@ -14,13 +14,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.urls import path, include
-from django.contrib.auth.models import User
 from django.contrib import admin
-from api.models import Product
-admin.autodiscover()
+from django.contrib.auth.models import User
+from django.urls import include, path
+from oauth2_provider.contrib.rest_framework import (TokenHasReadWriteScope,
+                                                    TokenHasScope)
 from rest_framework import generics, permissions, serializers
-from oauth2_provider.contrib.rest_framework import TokenHasReadWriteScope, TokenHasScope
+
+from api.models import Product
+
+admin.autodiscover()
 
 # first we define the serializers
 class UserSerializer(serializers.ModelSerializer):
@@ -29,6 +32,11 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('username', 'email', "first_name", "last_name")
 
 class ProdSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ("id", "itemno", "description", "price",)
+
+class ProdDetailedSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ("id", "itemno", "description", "description2", "price", "colour", "manufacturerCode")
@@ -44,7 +52,7 @@ class UserDetails(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class Productlist(generics.ListCreateAPIView):
+class Productlist(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
     queryset = Product.objects.all()
     serializer_class = ProdSerializer
@@ -52,7 +60,7 @@ class Productlist(generics.ListCreateAPIView):
 class ProductDetail(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
     queryset = Product.objects.all()
-    serializer_class = ProdSerializer
+    serializer_class = ProdDetailedSerializer
 
 
 # Setup the URLs and include login URLs for the browsable API.
