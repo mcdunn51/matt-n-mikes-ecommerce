@@ -1,4 +1,1 @@
-curl -X POST -d "grant_type=password&username=m&password=0000" -u"a1yxcE1zgnnsvfIHbgCabC6trbZh41ZFeEMh85j3:jk0yfYIB26haC47rV71gKUtbOpvEIiTsEdcWH0HNNJ8ZNE9q3ScNKh4o3Ig4rUpBYpVb0DP3nS2Ew6mRTqZUiwEYv7fCLVsnn2QarN8d5PoOtVKP6eVzgmfV62oSnUjM" http://192.168.20.118:8000/o/token/
-
-http://192.168.20.118:8000/Productlist/?access_token=vOQ18Acqx6ru7pqUEDLIoGaC2JL40S&format=json
-http://192.168.20.118:8000/users/1/?access_token=vOQ18Acqx6ru7pqUEDLIoGaC2JL40S&format=json
+curl -X POST -d "grant_type=password&username=m&password=0" -u"c0cmoFl0zfEY931Pa249GedtfllTN2FbkAe76xru:7JHPBNvEytuqEXTHQV82mWGmX2uIuxyAiCjBWK2eQdAJJSPpKOqzxItrZyaiXp04WCylhuxuwN1gArMesQQ5jQtD1t6uWYeGVeKHWeYya8NQURvEydqSeyUK2x9d5MA7" http://192.168.20.89:8000/o/token/
