@@ -23,7 +23,7 @@ except Exception as e:
 try:
     test = 'Productlist with ID filter endpoint'
     print('<<< Testing %s >>>' % test)
-    authentication = requests.get(r'http://' + str(IP) + r'/Productlist/8291/?access_token='+str(token)+r'&format=json')
+    authentication = requests.get(r'http://' + str(IP) + r'/Productlist/64681/?access_token='+str(token)+r'&format=json')
     print('  <<< PASS: completed testing with %s >>>' % test)
 except Exception as e:
     print('  <<< FAIL: completed testing with %s >>> \n %s' % (test, e))

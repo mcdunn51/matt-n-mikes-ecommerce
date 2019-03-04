@@ -1,27 +1,13 @@
 # import sqlite3, csv
 
-# def create_connection(db_file):
-#     try:
-#         conn = sqlite3.connect(db_file)
-#         return conn
-#     except Error as e:
-#         print(e)
- 
-#     return None
+import mysql.connector, csv, pypyodbc
 
-# conn = create_connection('db.sqlite3')
-# cur = conn.cursor()
-
-# with open ('data.csv') as csvfile:
-#     reader = csv.reader(csvfile)
-#     for row in reader:
-#         # print(row[0], row[1], row[2], row[3], row[4])
-#         sql = "insert into api_product (itemno, description, description2, price, colour, manufacturerCode) values ('%s', '%s', '%s', %s, '%s', '%s')" % (row[0], row[1], row[1], row[2], row[3], row[4])
-#         print(sql)
-#         cur.execute(sql)
-#         conn.commit()
-
-import mysql.connector, csv
+def create_mssql_connection():
+    connection = pypyodbc.connect(r'Driver={SQL Server};'
+                                'Server=navsqlat\RKWL1;'
+                                'Database=SVGL1;'
+                                'uid=MICHAELM;pwd=michael91448')
+    return connection
 
 def create_mysql_connection():
     conn = mysql.connector.connect(
@@ -33,14 +19,18 @@ def create_mysql_connection():
     )
     return conn
 
-conn = create_mysql_connection()
-cur = conn.cursor()
+mysql_conn = create_mysql_connection()
+mysql_cur = mysql_conn.cursor()
+mssql_conn = create_mssql_connection()
+mssql_cur = mssql_conn.cursor()
 
-with open (r'C:\Users\michael.mountford\OneDrive\Programming\matt-mikes-practice\backEnd\src\unused\data.csv') as csvfile:
-    reader = csv.reader(csvfile)
-    for row in reader:
-        # print(row[0], row[1], row[2], row[3], row[4])
-        sql = "insert into api_product (itemno, description, description2, price, colour, manufacturerCode) values ('%s', '%s', '%s', %s, '%s', '%s')" % (row[0], row[1], row[1], row[2], row[3], row[4])
+sql = "SELECT No_, Description, [Description 2], [Unit Price], [Primary Colour], [Manufacturer Code] from SVG$Item WHERE [Manufacturer Code] in ('MORPHY', 'SWAN', 'SMEG') and [Unit Price] > 0"
+res = mssql_cur.execute(sql)
+for row in res:
+    try:
+        sql = "insert into api_product (itemno, description, description2, price, colour, manufacturerCode) values ('%s', '%s', '%s', %s, '%s', '%s')" % (row[0], row[1], row[2], row[3], row[4], row[5])
         print(sql)
-        cur.execute(sql)
-        conn.commit()
+        mysql_cur.execute(sql)
+        mysql_conn.commit()
+    except:
+        print('fail')
