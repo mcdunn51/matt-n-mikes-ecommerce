@@ -17,20 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth.models import User
 from django.urls import include, path
-from oauth2_provider.contrib.rest_framework import (TokenHasReadWriteScope,
-                                                    TokenHasScope)
+from oauth2_provider.contrib.rest_framework import (TokenHasReadWriteScope, TokenHasScope)
 from rest_framework import generics, permissions, serializers
-
 from api.models import Product
-
 admin.autodiscover()
 
 # first we define the serializers
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('username', 'email', "first_name", "last_name")
-
 class ProdSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -42,15 +34,6 @@ class ProdDetailedSerializer(serializers.ModelSerializer):
         fields = ("id", "itemno", "description", "description2", "price", "colour", "manufacturerCode")
 
 # Create the API views
-class UserList(generics.ListCreateAPIView):
-    permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-class UserDetails(generics.RetrieveAPIView):
-    permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
 
 class Productlist(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
@@ -67,8 +50,6 @@ class ProductDetail(generics.RetrieveAPIView):
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    path('users/', UserList.as_view()),
-    path('users/<pk>/', UserDetails.as_view()),
     path('Productlist/', Productlist.as_view()),
     path('Productlist/<pk>/', ProductDetail.as_view())
 ]
