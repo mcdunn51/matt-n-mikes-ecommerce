@@ -25,7 +25,7 @@ SECRET_KEY = '=f!3l8+s=!=zezmbz9=gmch1hxsto!-r_0*lh5(bxtaepjd@tv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.20.118', '127.0.0.1', 'localhost','192.168.20.89']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','192.168.20.89']
 
 
 # Application definition
@@ -153,9 +153,3 @@ OAUTH2_PROVIDER = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
-
-# CORS_ORIGIN_WHITELIST = (
-#     '192.168.20.118:8000',
-#     '192.168.20.153:3000',
-#     '192.168.20.153:50019',
-# )
