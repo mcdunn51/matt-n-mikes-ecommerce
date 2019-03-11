@@ -9,21 +9,15 @@ import json, os
 # print(OrderSubmit.text)
 # authentication = requests.get(r'http://192.168.20.118:8000/o/token/')
 
-IP = '192.168.20.89:8000'
+IP = '192.168.20.90:8000'
 token = 'RzazVFDkRrWvJzpUCUyBsoabf5cQQS'
 
-try:
-    test = 'Productlist endpoint'
-    print(r'http://' + str(IP) + r'/Productlist/?access_token='+str(token)+r'&format=json')
-    authentication = requests.get(r'http://' + str(IP) + r'/Productlist/?access_token='+str(token)+r'&format=json')
-    print('  <<< PASS: completed testing with %s >>> \n' % test)
-except Exception as e:
-    print('  <<< FAIL: completed testing with %s >>> \n %s' % (test, e))
+# Productlist
+test = 'Productlist endpoint'
+print(r'http://' + str(IP) + r'/Productlist/?access_token='+str(token)+r'&format=json')
+authentication = requests.get(r'http://' + str(IP) + r'/Productlist/?access_token='+str(token)+r'&format=json', data={"itemno": "oihdiuoa","description": "pdijhai","description2": "","price": "21.56"})
 
-try:
-    test = 'Productlist with ID filter endpoint'
-    print(r'http://' + str(IP) + r'/Productlist/64681/?access_token='+str(token)+r'&format=json')
-    authentication = requests.get(r'http://' + str(IP) + r'/Productlist/64681/?access_token='+str(token)+r'&format=json')
-    print('  <<< PASS: completed testing with %s >>> \n' % test)
-except Exception as e:
-    print('  <<< FAIL: completed testing with %s >>> \n %s' % (test, e))
+# # Productlist with ID filter
+# test = 'Productlist with ID filter endpoint'
+# print(r'http://' + str(IP) + r'/Productlist/64681/?access_token='+str(token)+r'&format=json')
+# authentication = requests.get(r'http://' + str(IP) + r'/Productlist/64681/?access_token='+str(token)+r'&format=json')
