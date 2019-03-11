@@ -19,7 +19,7 @@ class ProdListSerializer(serializers.ModelSerializer):
 class ManufacturerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ("id", "itemno", "description", "description2", "price", "colour", "manufacturerCode")
+        fields = ("id", "manufacturerCode")
 
 # Create the API views
 
@@ -44,17 +44,15 @@ class Productlist(generics.ListAPIView):
 
 class Manufacturerlist(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
-    queryset = Product.objects.all()
-    serializer_class = ProdListSerializer
-    def get(self, request, *args, **kwargs):
-        self.queryset = Product.objects.filter(manufacturerCode=self.request.query_params['manufacturerCode'])
-        return super().get(request, *args, **kwargs)
+    # queryset = Product.objects.all()
+    queryset = Product.objects.values('manufacturerCode').distinct()
+    serializer_class = ManufacturerSerializer
 
 # Setup the URLs and include login URLs for the browsable API.
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('Productlist/', Productlist.as_view()),
-    path('Manufacturer/', Productlist.as_view()),
+    path('Manufacturer/', Manufacturerlist.as_view()),
     
 ]
