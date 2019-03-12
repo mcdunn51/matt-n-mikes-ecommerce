@@ -44,7 +44,6 @@ class Productlist(generics.ListAPIView):
 
 class Manufacturerlist(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
-    # queryset = Product.objects.all()
     queryset = Product.objects.values('manufacturerCode').distinct()
     serializer_class = ManufacturerSerializer
 
@@ -54,5 +53,4 @@ urlpatterns = [
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('Productlist/', Productlist.as_view()),
     path('Manufacturer/', Manufacturerlist.as_view()),
-    
 ]

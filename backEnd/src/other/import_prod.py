@@ -28,7 +28,8 @@ sql = 'DELETE FROM `django-test`.`api_product`'
 mysql_cur.execute(sql)
 mysql_conn.commit()
 
-sql = "SELECT No_, Description, [Description 2], [Unit Price], [Primary Colour], [Manufacturer Code] from SVG$Item WHERE [Manufacturer Code] in ('MORPHY', 'SWAN', 'SMEG') and [Unit Price] > 0"
+# sql = "SELECT No_, Description, [Description 2], [Unit Price], [Primary Colour], [Manufacturer Code] from SVG$Item WHERE [Manufacturer Code] in ('MORPHY', 'SWAN', 'SMEG') and [Unit Price] > 0"
+sql = "SELECT No_, Description, [Description 2], [Unit Price], [Primary Colour], [Manufacturer Code] from SVG$Item WHERE [Unit Price] > 0"
 res = mssql_cur.execute(sql)
 for row in res:
     try:
