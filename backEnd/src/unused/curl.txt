@@ -1,1 +1,0 @@
-curl -X POST -d "grant_type=password&username=m&password=0" -u"c0cmoFl0zfEY931Pa249GedtfllTN2FbkAe76xru:7JHPBNvEytuqEXTHQV82mWGmX2uIuxyAiCjBWK2eQdAJJSPpKOqzxItrZyaiXp04WCylhuxuwN1gArMesQQ5jQtD1t6uWYeGVeKHWeYya8NQURvEydqSeyUK2x9d5MA7" http://192.168.20.89:8000/o/token/

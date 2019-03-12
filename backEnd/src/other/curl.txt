@@ -1,0 +1,12 @@
+curl -X POST -d "grant_type=password&username=Mike&password=mike91448" -u"c0cmoFl0zfEY931Pa249GedtfllTN2FbkAe76xru:7JHPBNvEytuqEXTHQV82mWGmX2uIuxyAiCjBWK2eQdAJJSPpKOqzxItrZyaiXp04WCylhuxuwN1gArMesQQ5jQtD1t6uWYeGVeKHWeYya8NQURvEydqSeyUK2x9d5MA7" http://192.168.20.100:8000/o/token/
+
+
+Microsoft Windows [Version 10.0.17134.523]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\michael.mountford>curl -X POST -d "grant_type=password&username=Mike&password=mike91448" -u"c0cmoFl0zfEY931Pa249GedtfllTN2FbkAe76xru:7JHPBNvEytuqEXTHQV82mWGmX2uIuxyAiCjBWK2eQdAJJSPpKOqzxItrZyaiXp04WCylhuxuwN1gArMesQQ5jQtD1t6uWYeGVeKHWeYya8NQURvEydqSeyUK2x9d5MA7" http://192.168.20.89:8000/o/token/
+curl: (7) Failed to connect to 192.168.20.89 port 8000: Timed out
+
+C:\Users\michael.mountford> curl -X POST -d "grant_type=password&username=Mike&password=mike91448" -u"c0cmoFl0zfEY931Pa249GedtfllTN2FbkAe76xru:7JHPBNvEytuqEXTHQV82mWGmX2uIuxyAiCjBWK2eQdAJJSPpKOqzxItrZyaiXp04WCylhuxuwN1gArMesQQ5jQtD1t6uWYeGVeKHWeYya8NQURvEydqSeyUK2x9d5MA7" http://192.168.20.100:8000/o/token/
+{"access_token": "n9mPEVc0HBCH2Y3S3nxxgDQ8PR2FVQ", "expires_in": 300000, "token_type": "Bearer", "scope": "read write groups", "refresh_token": "EoSC9wcTpdTekaPR1pBgsHF2LwahYU"}
+C:\Users\michael.mountford>
