@@ -10,7 +10,6 @@ class Product(models.Model):
     colour = models.CharField(max_length=50)
     manufacturerCode = models.CharField(max_length = 50)
     Product_Category = models.CharField(max_length=20)
-    linkedProductID = models.IntegerField()
     RRP = models.DecimalField(max_digits=6, decimal_places=2)
     SSP = models.DecimalField(max_digits=6, decimal_places=2)
     FreeStock = models.IntegerField()
@@ -92,6 +91,12 @@ class OrderLines(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
 class IPG(models.Model):
-    Code = models.CharField(max_length=10)
+    ItemID = models.IntegerField()
     Description = models.CharField(max_length=10)
     EorH = models.CharField(max_length=10)
+
+class Matched(models.Model):
+    ItemID = models.IntegerField()
+    MatchingItemID = models.IntegerField()
+    ParentPartNo = models.CharField(max_length=20)
+    MatchingPartNo = models.CharField(max_length=20)

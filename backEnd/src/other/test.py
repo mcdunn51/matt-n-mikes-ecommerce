@@ -9,15 +9,18 @@ import json, os
 # print(OrderSubmit.text)
 # authentication = requests.get(r'http://192.168.20.118:8000/o/token/')
 
-IP = '192.168.20.90:8000'
-token = 'RzazVFDkRrWvJzpUCUyBsoabf5cQQS'
+IP = '192.168.20.100:8000'
+token = 'n9mPEVc0HBCH2Y3S3nxxgDQ8PR2FVQ'
 
 # Productlist
 test = 'Productlist endpoint'
-print(r'http://' + str(IP) + r'/Productlist/?access_token='+str(token)+r'&format=json')
-authentication = requests.get(r'http://' + str(IP) + r'/Productlist/?access_token='+str(token)+r'&format=json', data={"itemno": "oihdiuoa","description": "pdijhai","description2": "","price": "21.56"})
+authentication = requests.get(r'http://' + str(IP) + r'/Productlist/?access_token='+str(token))
+print(r'Sucess http://' + str(IP) + r'/Productlist/?access_token='+str(token)+r'&format=json')
 
-# # Productlist with ID filter
-# test = 'Productlist with ID filter endpoint'
-# print(r'http://' + str(IP) + r'/Productlist/64681/?access_token='+str(token)+r'&format=json')
-# authentication = requests.get(r'http://' + str(IP) + r'/Productlist/64681/?access_token='+str(token)+r'&format=json')
+#Manufacturer endpoint'
+authentication = requests.get(r'http://' + str(IP) + r'/Manufacturer/?access_token='+str(token))
+print(r'Sucess http://' + str(IP) + r'/Manufacturer/?access_token='+str(token)+r'&format=json')
+
+#Address endpoint'
+authentication = requests.get(r'http://' + str(IP) + r'/Address/?access_token='+str(token))
+print(r'Sucess http://' + str(IP) + r'/Address/?access_token='+str(token)+r'&format=json')
