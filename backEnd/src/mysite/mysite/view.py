@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 from oauth2_provider.contrib.rest_framework import (TokenHasReadWriteScope, TokenHasScope)
-from api.models import Product
-from api.serializers import ProdListSerializer, ManufacturerSerializer
+from api.models import Product, Address
+from api.serializers import ProdListSerializer, ManufacturerSerializer, AdressSerializer
 
 class Productlist(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
@@ -26,3 +26,8 @@ class Manufacturerlist(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
     queryset = Product.objects.values('manufacturerCode').distinct()
     serializer_class = ManufacturerSerializer
+
+class AddressList(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
+    queryset = Address.objects.all()
+    serializer_class = AdressSerializer
