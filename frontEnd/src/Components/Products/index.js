@@ -5,23 +5,41 @@ import CardImage from '../../images/cardImage.jpg';
 
 
 class ProductsIndex extends Component {
-    // state = {
-    //     persons: []
-    // }
 
     state = {
         products: []
     }
 
     componentDidMount() {
-        // axios.get(`http://192.168.20.118:8000/Productlist/?access_token=sFAXJvmPcog2aGQyrK0aK3KRi8mERm&format=json`)
-        //     .then(res => {
-        //         console.log(res.data);
-        //         this.setState({ persons: res.data });
-        //     })
-
-
+        axios({
+            method: 'post',
+            url: 'http://192.168.20.100:8000/Address/?access_token=n9mPEVc0HBCH2Y3S3nxxgDQ8PR2FVQ',
+            data: {
+                customerID: 1,
+                address1: "Sutton House",
+                address2: "Berry Hill Road",
+                town: "Staffordshire",
+                county: "Staffordshire",
+                postcode: "ST4 2NL",
+                phoneNumber: "01782 838822",
+                email: "rkw@rkwltd.com",
+                country: "UK"
+            }
+        })
+            .then(res => {
+                console.log(res.data);
+                // this.setState({ products: res.data });
+            })
     }
+
+
+    // componentDidMount() {
+    //     axios.get(`http://192.168.20.89:8000/Productlist/?access_token=RzazVFDkRrWvJzpUCUyBsoabf5cQQS&format=json`)
+    //         .then(res => {
+    //             console.log(res.data);
+    //             this.setState({ products: res.data });
+    //         })
+    // }
 
     render() {
         return (
@@ -49,7 +67,5 @@ class ProductsIndex extends Component {
         )
     }
 }
-
-
 
 export default ProductsIndex;

@@ -1,9 +1,9 @@
 import React from 'react';
-import ThreeBrands from '../Components/ThreeBrands/ThreeBrands';
+import Index from '../Components/Homepage';
 
 const HomePage = () => {
     return (
-        <ThreeBrands/>       
+        <Index/>       
     )
 };
 
