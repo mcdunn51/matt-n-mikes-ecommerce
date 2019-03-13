@@ -12,7 +12,7 @@ const Router = () => {
     return (
         <div>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/products" component={Products} />
+            <Route path="/products/:id" component={Products} />
             <Route exact path="/checkout" component={Checkout} />
             {/* <Route component={Error} /> */}
         </div>
