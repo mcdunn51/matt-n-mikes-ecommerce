@@ -13,14 +13,13 @@ IP = '192.168.20.100:8000'
 token = 'n9mPEVc0HBCH2Y3S3nxxgDQ8PR2FVQ'
 
 # Productlist
-test = 'Productlist endpoint'
 authentication = requests.get(r'http://' + str(IP) + r'/Productlist/?access_token='+str(token))
 print(r'Sucess http://' + str(IP) + r'/Productlist/?access_token='+str(token)+r'&format=json')
 
-#Manufacturer endpoint'
+# Manufacturer endpoint
 authentication = requests.get(r'http://' + str(IP) + r'/Manufacturer/?access_token='+str(token))
 print(r'Sucess http://' + str(IP) + r'/Manufacturer/?access_token='+str(token)+r'&format=json')
 
-#Address endpoint'
+# Address endpoint
 authentication = requests.get(r'http://' + str(IP) + r'/Address/?access_token='+str(token))
 print(r'Sucess http://' + str(IP) + r'/Address/?access_token='+str(token)+r'&format=json')
