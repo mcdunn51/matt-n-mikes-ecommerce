@@ -1,10 +1,11 @@
 import React from 'react';
 import ProductsIndex from '../Components/Products/index'
 
-const Products = () => {
+const Products = (props) => {
     return (
         <div>
-            <ProductsIndex/>
+            <h2>{props.match.params.id}</h2>
+            <ProductsIndex id={props.match.params.id}/>
         </div>
     )
 }

@@ -42,8 +42,8 @@ class MainNavbar extends Component {
 
                         <NavDropdown title="brands" id="basic-nav-dropdown">
                             {
-                                this.state.brands.map(brand => 
-                                    <IndexLinkContainer to="{/products">
+                                this.state.brands.map(brand =>
+                                    <IndexLinkContainer to={`/products/${brand}`}>
                                         <NavDropdown.Item>{brand}</NavDropdown.Item>
                                     </IndexLinkContainer>
                                 )

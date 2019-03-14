@@ -2,6 +2,8 @@
 
 import mysql.connector, csv, pypyodbc
 
+test_mode = False
+
 def create_mssql_connection():
     connection = pypyodbc.connect(r'Driver={SQL Server};'
                                 'Server=navsqlat\RKWL1;'
@@ -9,15 +11,26 @@ def create_mssql_connection():
                                 'uid=MICHAELM;pwd=michael91448')
     return connection
 
-def create_mysql_connection():
-    conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="0000",
-    database='django-test',
-    auth_plugin='caching_sha2_password'
-    )
-    return conn
+if test_mode:
+    def create_mysql_connection():
+        conn = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        passwd="0000",
+        database='django-test',
+        auth_plugin='caching_sha2_password'
+        )
+        return conn
+else:
+    def create_mysql_connection():
+        conn = mysql.connector.connect(
+        host="localhost",
+        user="testserv_root",
+        passwd="0000",
+        database='testserv_rkw',
+        auth_plugin='caching_sha2_password'
+        )
+        return conn
 
 mysql_conn = create_mysql_connection()
 mysql_cur = mysql_conn.cursor()
