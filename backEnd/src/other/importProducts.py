@@ -1,8 +1,9 @@
 # import sqlite3, csv
 
 import mysql.connector, csv, pypyodbc
+from djagno.conf import settings
 
-test_mode = False
+test_mode = settings.test_mode
 
 def create_mssql_connection():
     connection = pypyodbc.connect(r'Driver={SQL Server};'
