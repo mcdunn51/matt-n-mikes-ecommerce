@@ -1,16 +1,24 @@
 # import sqlite3, csv
 
-import mysql.connector, csv, pypyodbc
+import mysql.connector, csv, pypyodbc, pymssql
 from django.conf import settings
 
 test_mode = True
 
+# def create_mssql_connection():
+#     connection = pypyodbc.connect(r'Driver={SQL Server};'
+#                                 r'Server=navsqlat\RKWL1;'
+#                                 r'Database=SVGL1;'
+#                                 r'uid=MICHAELM;pwd=michael91448')
+#     return connection
+
 def create_mssql_connection():
-    connection = pypyodbc.connect(r'Driver={SQL Server};'
-                                r'Server=navsqlat\RKWL1;'
-                                r'Database=SVGL1;'
-                                r'uid=MICHAELM;pwd=michael91448')
-    return connection
+	host = r'navsqlat\RKWL1'
+	username = 'MICHAELM'
+	password = 'michael91448'
+	database = 'SVGL1'
+	conn = pymssql.connect(host, username, password, database)
+	return  conn
 
 if test_mode:
     def create_mysql_connection():
@@ -85,11 +93,12 @@ sql = """SELECT I.No_,
         FROM SVG$Item AS I
         INNER JOIN [SVG$Web Item] AS WI ON I.No_ = WI.[Item Code]
         WHERE I.[Volume Price] > 0"""
-res = mssql_cur.execute(sql)
+mssql_cur.execute(sql)
+res = mssql_cur.fetchall()
 for row in res:
     try:
         sql = "insert into `django-test`.api_product (itemno, description, description2, price, colour, manufacturerCode, Product_Category, RRP, SSP, FreeStock, ItemSpec1, ItemSpec2, ItemSpec3, ItemSpec4, ItemSpec5, ItemSpec6, ItemSpec7, ItemSpec8, ItemSpec9, ItemSpec10, Ti, HI, Item_Height, Item_Length, Item_Width, ProductPaging_Height, ProductPaging_Length, ProductPaging_Width, CartonHeight, CartonLength, CartonWidth, palletQty, cartonQty, restockDate, IPGID) values ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11], row[12], row[13], row[14], row[15], row[16], row[17], row[18], row[19], row[20], row[21], row[22], row[23], row[24], row[25], row[26], row[27], row[28], row[29], row[30], row[31], row[32], row[33], row[34])
-        # print(sql)
+        print(sql)
         mysql_cur.execute(sql)
         mysql_conn.commit()
     except:
