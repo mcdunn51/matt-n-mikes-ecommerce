@@ -1,12 +1,12 @@
 # import sqlite3, csv
 
-import mysql.connector, csv, pyodbc
+import mysql.connector, csv, pypyodbc
 from django.conf import settings
 
 test_mode = True
 
 def create_mssql_connection():
-    connection = pyodbc.connect(r'Driver={SQL Server};'
+    connection = pypyodbc.connect(r'Driver={SQL Server};'
                                 r'Server=navsqlat\RKWL1;'
                                 r'Database=SVGL1;'
                                 r'uid=MICHAELM;pwd=michael91448')
