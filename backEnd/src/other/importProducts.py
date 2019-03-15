@@ -1,15 +1,15 @@
 # import sqlite3, csv
 
-import mysql.connector, csv, pypyodbc
-from djagno.conf import settings
+import mysql.connector, csv, pyodbc
+from django.conf import settings
 
-test_mode = settings.test_mode
+test_mode = True
 
 def create_mssql_connection():
-    connection = pypyodbc.connect(r'Driver={SQL Server};'
-                                'Server=navsqlat\RKWL1;'
-                                'Database=SVGL1;'
-                                'uid=MICHAELM;pwd=michael91448')
+    connection = pyodbc.connect(r'Driver={SQL Server};'
+                                r'Server=navsqlat\RKWL1;'
+                                r'Database=SVGL1;'
+                                r'uid=MICHAELM;pwd=michael91448')
     return connection
 
 if test_mode:
