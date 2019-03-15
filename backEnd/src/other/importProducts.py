@@ -1,16 +1,9 @@
 # import sqlite3, csv
 
-import mysql.connector, csv, pypyodbc, pymssql
+import mysql.connector, csv, pymssql, json
 from django.conf import settings
 
 test_mode = True
-
-# def create_mssql_connection():
-#     connection = pypyodbc.connect(r'Driver={SQL Server};'
-#                                 r'Server=navsqlat\RKWL1;'
-#                                 r'Database=SVGL1;'
-#                                 r'uid=MICHAELM;pwd=michael91448')
-#     return connection
 
 def create_mssql_connection():
 	host = r'navsqlat\RKWL1'
@@ -46,9 +39,9 @@ mysql_cur = mysql_conn.cursor()
 mssql_conn = create_mssql_connection()
 mssql_cur = mssql_conn.cursor()
 
-sql = 'DELETE FROM `django-test`.`api_product`'
-mysql_cur.execute(sql)
-mysql_conn.commit()
+# sql = 'DELETE FROM `django-test`.`api_product`'
+# mysql_cur.execute(sql)
+# mysql_conn.commit()
 
 sql = """SELECT I.No_,
 			   I.Description,

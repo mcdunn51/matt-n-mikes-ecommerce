@@ -12,12 +12,8 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
-# Testing Mode
-test_mode = False
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -25,11 +21,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '=f!3l8+s=!=zezmbz9=gmch1hxsto!-r_0*lh5(bxtaepjd@tv'
 
+# Testing Mode
+TEST_MODE = True
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -79,7 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-if test_mode:
+if not TEST_MODE:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
