@@ -13,7 +13,7 @@ class MainNavbar extends Component {
 
     // get all brand names
     componentDidMount() {
-        axios.get(`http://192.168.20.100:8000/Manufacturer/?access_token=n9mPEVc0HBCH2Y3S3nxxgDQ8PR2FVQ`)
+        axios.get(`http://100.1.253.16:8000/Manufacturer/?access_token=KtSyKysXXRXDItz8AEkTUUZOMqEM5E`)
             .then(res => {
 
                 const manufacturerCodes = [];
@@ -40,7 +40,7 @@ class MainNavbar extends Component {
                             <Nav.Link>Home</Nav.Link>
                         </IndexLinkContainer>
 
-                        <NavDropdown title="brands" id="basic-nav-dropdown">
+                        <NavDropdown title="Brands" id="basic-nav-dropdown">
                             {
                                 this.state.brands.map(brand =>
                                     <IndexLinkContainer to={`/products/${brand}`}>
