@@ -23,7 +23,7 @@ class Product(models.Model):
     ItemSpec8 = models.CharField(max_length=69)
     ItemSpec9 = models.CharField(max_length=69)
     ItemSpec10 = models.CharField(max_length=69)
-    Ti = models.IntegerField()
+    TI = models.IntegerField()
     HI = models.IntegerField()
     Item_Height = models.DecimalField(max_digits=6, decimal_places=2)
     Item_Length = models.DecimalField(max_digits=6, decimal_places=2)

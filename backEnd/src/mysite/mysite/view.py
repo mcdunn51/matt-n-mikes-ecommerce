@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 from oauth2_provider.contrib.rest_framework import (TokenHasReadWriteScope, TokenHasScope)
 from api.models import Product, Address
-from api.serializers import ProdListSerializer, ManufacturerSerializer, AdressSerializer
+from api.serializers import ProdListSerializer, ManufacturerSerializer, AdressSerializer, ProdDetailedSerializer
 
 class Productlist(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
@@ -20,6 +20,16 @@ class Productlist(generics.ListAPIView):
         if 'GTPrice' in self.request.query_params:
             if len(self.request.query_params['GTPrice']) > 0:
                 self.queryset = self.queryset.filter(price__gte=self.request.query_params['GTPrice'])
+        return super().get(request, *args, **kwargs)
+    
+class ProdDetailed(generics.ListAPIView):
+    permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
+    queryset = Product.objects.all()
+    serializer_class = ProdDetailedSerializer
+    def get(self, request, *args, **kwargs):
+        if 'itemno' in self.request.query_params:
+            if len(self.request.query_params['itemno']) > 0:
+                self.queryset = self.queryset.filter(itemno=self.request.query_params['itemno'])
         return super().get(request, *args, **kwargs)
 
 class Manufacturerlist(generics.ListAPIView):
