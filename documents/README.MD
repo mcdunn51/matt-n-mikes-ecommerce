@@ -2,11 +2,39 @@ Front End:
 
 Back END:
     EndPoints:
+        Token/
+            http://127.0.0.1:8000/Token/
+            Params: 
+            Type:
+                POST
+            Payload:
+                {
+                    "username": "",
+                    "password": ""
+                }
+            Returns:
+                {
+                    "token": "8f3ee07191763b5a4c50b2e985e85d0b2bfa144a"
+                }
+
         Address/
             http://100.1.253.16:8000/Address/
             Params: access_token
             Type:
                 GET|POST
+            Payload:
+                {
+                    "customerID": "",
+                    "address1": "",
+                    "address2": "",
+                    "town": "",
+                    "county": "",
+                    "postcode": "",
+                    "phoneNumber": "",
+                    "email": "",
+                    "country": "",
+                    "city": ""
+                }
             Returns:
             [
                 {

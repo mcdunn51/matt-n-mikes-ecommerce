@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django_mysql',
     'oauth2_provider',
     'rest_framework',
+    'rest_framework.authtoken',
     'api'
 ]
 
