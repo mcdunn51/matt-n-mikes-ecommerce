@@ -1,7 +1,8 @@
+from django.contrib.auth.models import User
 from rest_framework import generics, permissions
 from oauth2_provider.contrib.rest_framework import (TokenHasReadWriteScope, TokenHasScope)
 from api.models import Product, Address
-from api.serializers import ProdListSerializer, ManufacturerSerializer, AdressSerializer, ProdDetailedSerializer
+from api.serializers import ProdListSerializer, ManufacturerSerializer, AdressSerializer, ProdDetailedSerializer, UserSerializer
 
 class Productlist(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
@@ -20,6 +21,9 @@ class Productlist(generics.ListAPIView):
         if 'GTPrice' in self.request.query_params:
             if len(self.request.query_params['GTPrice']) > 0:
                 self.queryset = self.queryset.filter(price__gte=self.request.query_params['GTPrice'])
+        if 'colour' in self.request.query_params:
+            if len(self.request.query_params['colour']) > 0:
+                self.queryset = self.queryset.filter(colour=self.request.query_params['colour'])
         return super().get(request, *args, **kwargs)
     
 class ProdDetailed(generics.ListAPIView):
@@ -41,3 +45,10 @@ class AddressList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
     queryset = Address.objects.all()
     serializer_class = AdressSerializer
+
+class Login(generics.ListCreateAPIView):
+    permission_classes = [permissions.IsAuthenticated, TokenHasReadWriteScope]
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    def post(self, request, *args, **kwargs):
+        return super().post(request, *args, **kwargs)

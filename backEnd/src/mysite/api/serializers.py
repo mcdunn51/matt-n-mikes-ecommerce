@@ -1,10 +1,11 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import Product, Address
 
 class ProdListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ("id", "itemno", "description", "price")
+        fields = ("id", "itemno", "description", "price", "colour")
 
 class ProdDetailedSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,3 +21,8 @@ class AdressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
         fields = ("customerID", "address1", "address2", "town", "county", "postcode", "phoneNumber", "email", "country", "city")
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ("")

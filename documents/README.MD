@@ -3,20 +3,19 @@ Front End:
 Back END:
     EndPoints:
         Token/
-            http://127.0.0.1:8000/Token/
-            Params: 
+            http://100.1.253.16:8000/o/token/?grant_type=password&username=Mike&password=tas}Ng2uQ7?!rSS9&client_id=3USdTjmnjbcdTeNrdwjeaOlEcVg1n7oFmXHPz2q9&client_secret=QuZg0JK62clUelPFMJs1884zx1g1ZeFPcgPN74W58Z3ZKUrWrUFAaMwoxJ8sdLei5CvTUIvCErNcmIQk4hoRA5w5A3GC1u9Sbe4ctqWrV67SX12mZ8Rxp2hFwVhFXF5M
+            Params: grant_type|username|password|client_id|client_secret
             Type:
                 POST
             Payload:
-                {
-                    "username": "",
-                    "password": ""
-                }
             Returns:
                 {
-                    "token": "8f3ee07191763b5a4c50b2e985e85d0b2bfa144a"
+                    "access_token": "4YbEdIQdvxWHGnjzX5oVoxKUEfRC9e",
+                    "expires_in": 300000,
+                    "token_type": "Bearer",
+                    "scope": "read write groups",
+                    "refresh_token": "LLR3fjm5q556GfiEGdZNoq0sXxGOWY"
                 }
-
         Address/
             http://100.1.253.16:8000/Address/
             Params: access_token
@@ -65,7 +64,7 @@ Back END:
 
         Productlist/
             http://100.1.253.16:8000/Productlist/
-            Params: access_token|manufacturerCode|itemno|LTPrice|GTPrice
+            Params: access_token|manufacturerCode|itemno|LTPrice|GTPrice|colour
             Type:
                 GET
             Returns:
@@ -74,7 +73,8 @@ Back END:
                         "id": 99906,
                         "itemno": "HBHD01",
                         "description": "Hand Blender Holder Accessory",
-                        "price": "14.48"
+                        "price": "14.48",
+                        "colour": "BLACK"
                     }
                 ]
 

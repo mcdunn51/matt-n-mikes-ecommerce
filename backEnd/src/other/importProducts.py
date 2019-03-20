@@ -39,9 +39,9 @@ mysql_cur = mysql_conn.cursor()
 mssql_conn = create_mssql_connection()
 mssql_cur = mssql_conn.cursor()
 
-# sql = 'DELETE FROM `django-test`.`api_product`'
-# mysql_cur.execute(sql)
-# mysql_conn.commit()
+sql = 'DELETE FROM `django-test`.`api_product`'
+mysql_cur.execute(sql)
+mysql_conn.commit()
 
 sql = """SELECT I.No_,
 			   I.Description,
