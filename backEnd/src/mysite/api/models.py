@@ -36,7 +36,7 @@ class Product(models.Model):
     CartonWidth = models.DecimalField(max_digits=6, decimal_places=2)
     palletQty = models.IntegerField()
     cartonQty = models.IntegerField()
-    restockDate = models.DateField
+    restockDate = models.DateField()
     IPGID = models.IntegerField()
     def __str__(self):
         return self.itemno
@@ -91,8 +91,8 @@ class OrderLines(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
 class IPG(models.Model):
-    ItemID = models.IntegerField()
-    Description = models.CharField(max_length=10)
+    Code = models.CharField(max_length=20)
+    Description = models.CharField(max_length=50)
     EorH = models.CharField(max_length=10)
 
 class Matched(models.Model):

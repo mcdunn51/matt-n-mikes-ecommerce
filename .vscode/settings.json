@@ -1,13 +1,3 @@
 {
-    "python.pythonPath": "backEnd\\Scripts\\python.exe",
-    "python.unitTest.unittestArgs": [
-        "-v",
-        "-s",
-        "./backEnd",
-        "-p",
-        "*test.py"
-    ],
-    "python.unitTest.pyTestEnabled": false,
-    "python.unitTest.nosetestsEnabled": false,
-    "python.unitTest.unittestEnabled": true
+    "python.pythonPath": "backEnd\\Scripts\\python.exe"
 }

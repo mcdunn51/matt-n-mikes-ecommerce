@@ -11,3 +11,5 @@ you can access the site at http://testserver.svg.local
 if you want to create a database https://100.1.253.16:2031/
 
 use the same username and password and follow the guide on the webpage 
+
+"scl enable rh-python36 bash" to enable python3 on the Server
