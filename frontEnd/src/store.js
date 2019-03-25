@@ -1,10 +1,11 @@
 import { createStore, combineReducers} from 'redux';
 import { reducer as formReducer } from 'redux-form';
+
 import brandsReducer from './Components/MainNavBar/reducer';
 import productsReducer from './Components/Products/reducer';
 import cartReducer from './Components/Cart/reducer';
 
-const rooReducer = combineReducers({
+const rootReducer = combineReducers({
     brands: brandsReducer,
     products: productsReducer,
     cart: cartReducer,
@@ -12,7 +13,7 @@ const rooReducer = combineReducers({
 })
 
 const store = createStore(
-    rooReducer, 
+    rootReducer, 
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
