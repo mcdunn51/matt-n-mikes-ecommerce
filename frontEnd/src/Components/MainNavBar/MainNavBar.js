@@ -33,7 +33,7 @@ class MainNavbar extends Component {
 
         return (
             <Navbar id="MainNavBar" bg="light" expand="lg">
-                <Navbar.Brand href="#home">Matt and Mike's Eccomerce Site</Navbar.Brand>
+                <Navbar.Brand href="#home">Matt and Mike's Ecommerce Site</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">

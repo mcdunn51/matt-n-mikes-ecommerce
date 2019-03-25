@@ -6,16 +6,12 @@ let LoginForm = props => {
     return (
         <form onSubmit={handleSubmit} className="form">
             <div className="form-group">
-                <label htmlFor="firstName" className="form-label">First Name</label>
-                <Field name="firstName" component="input" type="text" className="form-control" required/>
+                <label htmlFor="username" className="form-label">Username</label>
+                <Field name="username" component="input" type="text" className="form-control" required/>
             </div>
             <div className="form-group">
-                <label htmlFor="lastName" className="form-label">Last Name</label>
-                <Field name="lastName" component="input" type="text" className="form-control" required/>
-            </div>
-            <div className="form-group">
-                <label htmlFor="email" className="form-label">Email</label>
-                <Field name="email" component="input" type="email" className="form-control" required/>
+                <label htmlFor="Password" className="form-label">Password</label>
+                <Field name="pwd" component="input" type="password" className="form-control" required/>
             </div>
             <button type="submit">Submit</button>
         </form>
